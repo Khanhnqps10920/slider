@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d9876ed7d9.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    header {
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .nav .nav-list {
+      display: flex;
+    }
+
+    .nav .nav-list .nav-item {
+      margin-left: 10px;
+    }
+
+    .nav .nav-item a {
+      color: #000;
+      font-weight: 300;
+    }
+
+    .toggle {
+      display: none;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 5px;
+      color: #23b5b5;
+      font-size: 20px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .bars {
+      display: block;
+    }
+
+    .close {
+      display: none;
+    }
+
+    .toggle.active .bars {
+      display: none;
+    }
+
+    .toggle.active .close {
+      display: block;
+    }
+
+    .nav-mobile {
+      height: calc(100vh - 80px);
+      margin-top: 80px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #fff;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      width: 0;
+      transition: 1s;
+      overflow: hidden;
+      /* opacity: 0;
+      visibility: hidden; */
+    }
+
+    .nav-mobile.active {
+      width: 80%;
+    }
+
+
+    .nav-mobile .nav-mobile-item {
+      text-align: right;
+      margin: 40px 0;
+      padding: 0 20px;
+    }
+
+    .nav-mobile .nav-mobile-item a {
+      color: #000;
+      font-size: 33px;
+      font-weight: 300;
+    }
+
+    @media only screen and (max-width: 767px) {
+      .toggle {
+        display: flex;
+      }
+
+      .nav .nav-list {
+        display: none;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <h3>Logo</h3>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#">Home </a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+            <li class="nav-item"><a href="#">Contact</a></li>
+            <li class="nav-item"><a href="#">Info</a></li>
+            <li class="nav-item"><a href="#">Lorem</a></li>
+          </ul>
+          <div class="toggle">
+            <i class="fa-solid fa-bars bars"></i>
+            <i class="fa-solid fa-xmark close"></i>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile">
+    <div class="container">
+      <ul class="nav-mobile-link">
+        <li class="nav-mobile-item"><a href="#">Home</a></li>
+        <li class="nav-mobile-item"><a href="#">About</a></li>
+        <li class="nav-mobile-item"><a href="#">Contact</a></li>
+        <li class="nav-mobile-item"><a href="#">Info</a></li>
+        <li class="nav-mobile-item"><a href="#">Lorem</a></li>
+        <li class="nav-mobile-item"><a href="#">Contact</a></li>
+        <li class="nav-mobile-item"><a href="#">Info</a></li>
+        <li class="nav-mobile-item"><a href="#">Lorem</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <script>
+    var menutoggle = document.querySelector('.toggle');
+    menutoggle.onclick = function () {
+      menutoggle.classList.toggle('active')
+
+      var navMobile = document.querySelector('.nav-mobile');
+      navMobile.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>

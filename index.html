@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .slides-wrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slides {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: none;
+  }
+
+  .slides-wrapper .button {
+    background: none;
+    border: 1px solid #000;
+    color: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .4s;
+  }
+
+  .button:hover {
+    opacity: 0.5;
+  }
+
+  .button.previous {
+    left: -50px;
+  }
+
+  .button.next {
+    right: -50px;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="slides-wrapper">
+      <img class="slides" src="images/1.avif">
+      <img class="slides" src="images/2.avif">
+      <img class="slides" src="images/3.avif">
+      <img class="slides" src="images/4.avif">
+
+      <button class="previous button" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="next button" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+      var slides = document.getElementsByClassName("slides");
+      console.log(slides.length, n);
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  </script>
+
+</body>
+
+</html>
